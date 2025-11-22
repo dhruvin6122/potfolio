@@ -30,10 +30,10 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
                         AI Engineer & Full-Stack Developer
                     </h1>
-                    <p className="text-xl md:text-2xl text-muted-foreground mt-4">
+                    <p className="text-lg md:text-xl text-muted-foreground mt-3">
                         Building intelligent systems with cutting-edge AI and modern web technologies
                     </p>
                 </motion.div>
@@ -42,7 +42,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-lg text-muted-foreground max-w-2xl mx-auto"
+                    className="text-base text-muted-foreground max-w-2xl mx-auto"
                 >
                     Specializing in Agentic AI, RAG systems, Machine Learning, and scalable full-stack applications.
                     Transforming complex problems into elegant AI-powered solutions.
