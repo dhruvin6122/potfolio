@@ -1,13 +1,20 @@
 "use client"
-
 import * as React from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { PROJECTS } from "@/lib/data"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Github } from "lucide-react"
 import Link from "next/link"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 
 function ProjectImageSlider({ images, title }: { images: string[]; title: string }) {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
@@ -110,11 +117,46 @@ export function ProjectsCarousel() {
                             </CardContent>
 
                             <CardFooter className="pt-3">
-                                <Button asChild className="w-full">
-                                    <Link href={`/p/${project.id}`}>
-                                        View Details <ArrowRight className="ml-2 h-4 w-4" />
-                                    </Link>
-                                </Button>
+                                <Dialog>
+                                    <DialogTrigger asChild>
+                                        <Button className="w-full">
+                                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Button>
+                                    </DialogTrigger>
+                                    <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+                                        <DialogHeader>
+                                            <DialogTitle className="text-2xl font-bold mb-2">{project.title}</DialogTitle>
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                {project.tags.map((tag) => (
+                                                    <Badge key={tag} variant="secondary">
+                                                        {tag}
+                                                    </Badge>
+                                                ))}
+                                            </div>
+                                        </DialogHeader>
+
+                                        <div className="space-y-6">
+                                            <ProjectImageSlider images={project.images} title={project.title} />
+
+                                            <DialogDescription className="text-base leading-relaxed text-foreground">
+                                                {project.longDescription}
+                                            </DialogDescription>
+
+                                            <div className="flex gap-4 pt-4">
+                                                <Button asChild className="flex-1">
+                                                    <Link href={project.demoLink} target="_blank">
+                                                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                                                    </Link>
+                                                </Button>
+                                                <Button asChild variant="outline" className="flex-1">
+                                                    <Link href={project.repoLink} target="_blank">
+                                                        <Github className="mr-2 h-4 w-4" /> Source Code
+                                                    </Link>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </DialogContent>
+                                </Dialog>
                             </CardFooter>
                         </Card>
                     </div>
