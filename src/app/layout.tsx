@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-    title: "Developer Portfolio",
-    description: "Full-stack developer portfolio built with Next.js",
+    title: "Dhruvin Patel Portfolio",
+    description: "AI Engineer & Full-Stack Developer Portfolio",
 };
 
 export default function RootLayout({

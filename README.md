@@ -84,10 +84,10 @@ You can easily update the content by modifying the `src/lib/data.ts` file. This 
 **Dhruvin Patel**  
 AI Engineer & Full-Stack Developer
 
-- **Email:** [dhruvin.patel6122@gmail.com](mailto:dhruvin.patel6122@gmail.com)
+- **Email:** [pateldhruvin6122@gmail.com](mailto:pateldhruvin6122@gmail.com)
 - **LinkedIn:** [Dhruvin Patel](https://linkedin.com/in/dhruvin6122)
 - **GitHub:** [dhruvin6122](https://github.com/dhruvin6122)
 
 ---
 
-© 2024 Dhruvin Patel. All rights reserved.
+© 2025 Dhruvin Patel. All rights reserved.
