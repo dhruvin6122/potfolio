@@ -11,6 +11,7 @@ interface ProjectPageProps {
     }
 }
 
+// This function is required for static site generation with dynamic routes
 export function generateStaticParams() {
     return PROJECTS.map((project) => ({
         slug: project.id,
@@ -18,10 +19,11 @@ export function generateStaticParams() {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
+    // Ensure we find the project matching the slug
     const project = PROJECTS.find((p) => p.id === params.slug)
 
     if (!project) {
-        notFound()
+        return notFound()
     }
 
     return (
@@ -37,26 +39,28 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <div className="grid gap-12 lg:grid-cols-2">
                 <div className="space-y-8">
                     <div>
-                        <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-                        <div className="flex flex-wrap gap-2 mb-6">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
+                        <div className="flex flex-wrap gap-2 mb-8">
                             {project.tags.map((tag) => (
-                                <Badge key={tag} variant="secondary">
+                                <Badge key={tag} variant="secondary" className="text-sm px-3 py-1">
                                     {tag}
                                 </Badge>
                             ))}
                         </div>
-                        <p className="text-xl text-muted-foreground leading-relaxed">
-                            {project.longDescription}
-                        </p>
+                        <div className="prose prose-invert max-w-none">
+                            <p className="text-xl text-muted-foreground leading-relaxed">
+                                {project.longDescription}
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="flex gap-4">
-                        <Button asChild size="lg">
+                    <div className="flex flex-wrap gap-4 pt-4">
+                        <Button asChild size="lg" className="rounded-full">
                             <Link href={project.demoLink} target="_blank">
                                 <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
                             </Link>
                         </Button>
-                        <Button asChild variant="outline" size="lg">
+                        <Button asChild variant="outline" size="lg" className="rounded-full">
                             <Link href={project.repoLink} target="_blank">
                                 <Github className="mr-2 h-4 w-4" /> Source Code
                             </Link>
@@ -66,11 +70,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
                 <div className="space-y-6">
                     {project.images.map((image, index) => (
-                        <div key={index} className="overflow-hidden rounded-xl border bg-muted shadow-lg">
+                        <div key={index} className="overflow-hidden rounded-2xl border bg-muted shadow-lg group">
                             <img
                                 src={image}
                                 alt={`${project.title} screenshot ${index + 1}`}
-                                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
                             />
                         </div>
                     ))}
