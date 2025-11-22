@@ -47,15 +47,16 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="relative w-full max-w-xs md:max-w-md mx-auto">
-                        <div className="aspect-square overflow-hidden rounded-2xl border-4 border-background shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <div className="relative w-full max-w-[250px] md:max-w-[300px] mx-auto group">
+                        <div className="aspect-square overflow-hidden rounded-2xl border-4 border-background shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500 ease-in-out">
                             <img
                                 src="/profile.png"
                                 alt="Dhruvin Patel"
-                                className="h-full w-full object-cover"
+                                className="h-full w-full object-cover scale-110 group-hover:scale-100 transition-transform duration-500"
                             />
                         </div>
-                        <div className="absolute -z-10 top-4 -right-4 w-full h-full rounded-2xl bg-primary/10 rotate-6"></div>
+                        <div className="absolute -z-10 top-4 -right-4 w-full h-full rounded-2xl bg-primary/10 rotate-6 group-hover:rotate-3 transition-transform duration-500"></div>
+                        <div className="absolute -z-20 -bottom-4 -left-4 w-full h-full rounded-2xl bg-secondary/20 -rotate-3 group-hover:-rotate-1 transition-transform duration-500"></div>
                     </div>
                 </div>
             </section>
