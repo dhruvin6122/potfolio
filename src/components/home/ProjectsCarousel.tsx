@@ -111,7 +111,7 @@ export function ProjectsCarousel() {
 
                             <CardFooter className="pt-3">
                                 <Button asChild className="w-full">
-                                    <Link href={`/projects/${project.id}`}>
+                                    <Link href={`/p/${project.id}`}>
                                         View Details <ArrowRight className="ml-2 h-4 w-4" />
                                     </Link>
                                 </Button>
