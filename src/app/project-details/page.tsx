@@ -6,14 +6,14 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 
 interface ProjectPageProps {
-    searchParams: {
+    searchParams: Promise<{
         id?: string
-    }
+    }>
 }
 
-export default function ProjectDetailsPage({ searchParams }: ProjectPageProps) {
-    const projectId = searchParams.id
-    const project = PROJECTS.find((p) => p.id === projectId)
+export default async function ProjectDetailsPage({ searchParams }: ProjectPageProps) {
+    const { id } = await searchParams
+    const project = PROJECTS.find((p) => p.id === id)
 
     if (!project) {
         return (
